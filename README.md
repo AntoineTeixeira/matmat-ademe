@@ -413,6 +413,6 @@ Citation metadata are provided in the `CITATION.cff` file.
 
 | Version | Date | Description |
 |----------|----------|----------|
-| 0.9.0-beta | 2026-06-21 | First public open-source beta release |
+| 0.9.0-beta | 2026-06-20 | First public open-source beta release |
 
 
