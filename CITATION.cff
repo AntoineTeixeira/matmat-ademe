@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use MatMat in your research, please cite the software release below."
+type: software
+
+title: "MatMat v0.9.0-beta: A modular open-source EEIO framework for prospective environmental and socio-economic impact assessment"
+
+authors:
+  - family-names: "Teixeira"
+    given-names: "Antoine"
+    affiliation: "ADEME"
+    email: "antoine.teixeira@ademe.fr"
+  - family-names: "Grand"
+    given-names: "Julien"
+    email: "jgrand.pro@proton.me"
+
+version: "0.9.0-beta"
+date-released: "2026-06-20"
+
+repository-code: "https://github.com/AntoineTeixeira/matmat-ademe"
+url: "https://github.com/AntoineTeixeira/matmat-ademe"
+license: "CECILL-2.1"
+
+# To be added after the GitHub release has been archived on Zenodo:
+# doi: "10.5281/zenodo.xxxxxxx"
+
+abstract: >
+  MatMat is a modular open-source Python framework for Environmentally-Extended
+  Input-Output (EEIO) modelling and prospective impact assessment. It is designed
+  to assess global, regional, and country-driven environmental and socio-economic
+  impacts of forward-looking scenarios along global supply chains.
+
+abstract: >
+  MatMat is a modular open-source Python framework for Environmentally-Extended
+  Input-Output (EEIO) modelling and environmental and socio-economic prospective
+  impact assessment. It is designed to assess global, regional and country-driven
+  environmental and socio-economic impacts of forward-looking scenarios along
+  global supply chains.
+
+keywords:
+  - "industrial ecology"
+  - "environmentally-extended input-output analysis"
+  - "EEIO"
+  - "environmental assessment"
+  - "environmental footprint"
+  - "scenario modelling"
+  - "prospective analysis"

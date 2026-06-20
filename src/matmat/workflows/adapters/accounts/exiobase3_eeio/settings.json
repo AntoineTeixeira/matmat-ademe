@@ -1,0 +1,21 @@
+{
+  "path_in": "path/to/input/data/directory",
+  "path_out": "path/to/output/data/directory",
+  "export_format": [
+    "pickle",
+    "excel"
+  ],
+  "version": "3.10.2",
+  "system": "pxp",
+  "base_year": 2015,
+  "extension_names": [
+    "ghg_emissions",
+    "energy",
+    "raw_materials",
+    "labor",
+    "value_added",
+    "water",
+    "land_use",
+    "biogeochemical"
+  ]
+}

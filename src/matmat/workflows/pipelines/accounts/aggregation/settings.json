@@ -1,0 +1,14 @@
+{
+  "path_in": {
+    "accounts": "path/to/accounts",
+    "bridges": "path/to/bridge_matrices.xlsx"
+  },
+  "path_out": "path/to/output/data/directory",
+  "export_format": [
+    "excel",
+    "pickle"
+  ],
+  "extension_names": ["ext_test"],
+  "calculate_accounts": false,
+  "clean_path_out": false
+}

@@ -1,0 +1,7 @@
+MatMat is distributed under the CeCILL v2.1 license.
+
+The complete license text is provided in:
+- LICENSE-FR.txt
+- LICENSE-EN.txt
+
+Copyright © 2026 ADEME

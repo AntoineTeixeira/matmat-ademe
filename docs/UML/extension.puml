@@ -1,0 +1,150 @@
+@startuml matmat.core.accounts
+!pragma useIntermediatePackages false
+
+abstract class matmat.core.base.data.AbstractData {
+  _TYPE: str {static}
+  _IS_STRUCTURE_VARIABLE: bool {static}
+  _NAME: str {static}
+  _id: AbstractDataIdentity
+  _final_demand_categories: dict
+  _idx_builder: IndexBuilder
+  _df_rows: pandas.core.indexes.base.Index
+  _df_columns: pandas.core.indexes.base.Index
+  _df: pandas.core.frame.DataFrame
+}
+class matmat.core.base.identity.AbstractDataIdentity {
+  _regions: dict
+  agg_level: str
+}
+class matmat.core.base.identity.AbstractIdentity {
+  _regions: dict
+  agg_level: str
+  _base_year: int
+  _proj_year: int
+  scenario_name: str
+}
+class matmat.core.base.index.core.IndexBuilder {
+  _df_index: DataFrame
+}
+
+class matmat.core.accounts.extension.builder.ExtensionDirector {
+  _builder: ExtensionBuilder
+  id: None
+  _extension_categories: list | dict
+  _final_demand_categories: dict
+}
+class matmat.core.accounts.extension.core.Extension {
+  _id: ExtensionIdentity 
+  _S_x: SxData 
+  _S_xk: SxkData | NullExtensionData 
+  _S_Y: SyData | NullExtensionData 
+  _S_Z: SzData | NullExtensionData 
+  _F_x: FxData 
+  _F_xk: FxkData | NullExtensionData 
+  _F_Y: FyData | NullExtensionData 
+  _F_Z: FzData | NullExtensionData 
+  _unit: UnitExtensionData 
+  _M: MData 
+  _Mk: MkData | NullExtensionData 
+  _d_cba: DCbaData 
+  _d_cba_k: DCbaKData | NullExtensionData 
+  _calc_mode: AbstractSrioExtensionCalculStrategy 
+}
+class matmat.core.accounts.extension.builder.ExtensionBuilder {
+  _result: Extension
+}
+class matmat.core.accounts.extension.identity.ExtensionIdentity {
+  extension_name: str
+  strategy: str
+}
+abstract class matmat.core.accounts.extension.strategies.AbstractSrioExtensionCalculStrategy {
+  _NAME: str {static}
+}
+class matmat.core.accounts.extension.data.DCbaData {
+}
+class matmat.core.accounts.extension.data.DCbaKData {
+}
+enum matmat.core.accounts.extension.strategies.ExtensionStrategies {
+  EXTENSION_BY_INPUT: by_input {static}
+  EXTENSION_BY_OUTPUT: by_output {static}
+}
+class matmat.core.accounts.extension.data.FxData {
+}
+class matmat.core.accounts.extension.data.FxkData {
+}
+class matmat.core.accounts.extension.data.FyData {
+}
+class matmat.core.accounts.extension.data.FzData {
+}
+class matmat.core.accounts.extension.data.MData {
+}
+class matmat.core.accounts.extension.data.MkData {
+}
+class matmat.core.accounts.extension.data.NullExtensionData {
+}
+class matmat.core.accounts.extension.data.SxData {
+}
+class matmat.core.accounts.extension.data.SxkData {
+}
+class matmat.core.accounts.extension.data.SyData {
+}
+class matmat.core.accounts.extension.data.SzData {
+}
+class matmat.core.accounts.extension.data.UnitExtensionData {
+}
+class matmat.core.accounts.extension.data.AbstractExtensionData {
+  _id: ExtensionDataIdentity 
+  _extension_categories: list | dict | None
+}
+class matmat.core.accounts.extension.identity.ExtensionDataIdentity {
+  extension_name: str
+}
+class matmat.core.accounts.extension.strategies.ExtensionByInput {
+  _NAME: str {static}
+}
+class matmat.core.accounts.extension.strategies.ExtensionByOutput {
+  _NAME: str {static}
+}
+matmat.core.accounts.extension.builder.ExtensionDirector *-- matmat.core.accounts.extension.builder.ExtensionBuilder
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.identity.ExtensionIdentity
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.SxData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.SxkData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.NullExtensionData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.SyData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.SzData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.FxData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.FxkData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.FyData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.FzData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.UnitExtensionData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.MData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.MkData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.DCbaData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.data.DCbaKData
+matmat.core.accounts.extension.core.Extension *-- matmat.core.accounts.extension.strategies.AbstractSrioExtensionCalculStrategy
+matmat.core.accounts.extension.builder.ExtensionBuilder *-- matmat.core.accounts.extension.core.Extension
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.DCbaData
+matmat.core.accounts.extension.data.DCbaData <|-- matmat.core.accounts.extension.data.DCbaKData
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.FxData
+matmat.core.accounts.extension.data.FxData <|-- matmat.core.accounts.extension.data.FxkData
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.FyData
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.FzData
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.MData
+matmat.core.accounts.extension.data.MData <|-- matmat.core.accounts.extension.data.MkData
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.NullExtensionData
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.SxData
+matmat.core.accounts.extension.data.SxData <|-- matmat.core.accounts.extension.data.SxkData
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.SyData
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.SzData
+matmat.core.accounts.extension.data.AbstractExtensionData <|-- matmat.core.accounts.extension.data.UnitExtensionData
+matmat.core.accounts.extension.data.AbstractExtensionData *-- matmat.core.accounts.extension.identity.ExtensionDataIdentity
+matmat.core.accounts.extension.strategies.AbstractSrioExtensionCalculStrategy <|-- matmat.core.accounts.extension.strategies.ExtensionByInput
+matmat.core.accounts.extension.strategies.AbstractSrioExtensionCalculStrategy <|-- matmat.core.accounts.extension.strategies.ExtensionByOutput
+matmat.core.base.identity.AbstractDataIdentity <|-- matmat.core.accounts.extension.identity.ExtensionDataIdentity
+matmat.core.base.identity.AbstractIdentity <|-- matmat.core.accounts.extension.identity.ExtensionIdentity
+matmat.core.base.data.AbstractData <|-- matmat.core.accounts.extension.data.AbstractExtensionData
+matmat.core.base.data.AbstractData *-- matmat.core.base.identity.AbstractDataIdentity
+matmat.core.base.data.AbstractData *-- matmat.core.base.index.core.IndexBuilder
+footer Generated by //py2puml//
+@enduml
+

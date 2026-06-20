@@ -1,0 +1,26 @@
+{
+  "path_in": {
+    "manual_param_file": "path/to/manual_param.xlsx",
+    "detail_levels_file": "path/to/detail_levels.xlsx"
+  },
+  "path_out": "path/to/output/data/directory",
+  "export_format": [
+    "excel",
+    "pickle"
+  ],
+  "base_year": 2019,
+  "scenario_names": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "TEND"
+  ],
+  "proj_years": [
+    2030,
+    2040,
+    2050
+  ],
+  "extension_names": [
+  ]
+}

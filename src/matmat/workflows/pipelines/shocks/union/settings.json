@@ -1,0 +1,19 @@
+{
+  "path_in": {
+    "shocks": {
+      "agg_level_1": [
+        "shocks/union/agg_level_1"
+      ]
+    },
+    "multi_bridge": "shocks/union/multibridge.xlsx"
+  },
+  "path_out": "shocks/union/output",
+  "export_format": [
+    "excel",
+    "pickle"
+  ],
+  "base_year": 2019,
+  "proj_year": 2050,
+  "scenario_name": "S1",
+  "multi_bridge_filter_level": "agg_level"
+}

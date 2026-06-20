@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv*/
+env*/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Documentation
+docs/build/
+
+# IDE
+.idea/
+.vscode/
+
+# Log files
+*.log
+
+# Local configuration
+src/config.toml
+src/settings/
+config.toml
+settings/
+
+# Data
+calibration/
+outputs/
+data/
+.cache/
+MatMat/
+src/_trash
+
+# Temporary work
+draft/
+final_figures/
+
+# Archives
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,93 @@
+[build-system]
+requires = ["setuptools"] # "wheel"
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matmat"
+dynamic = ["version", "readme"]
+authors = [
+    {name= "Antoine Teixeira", email = "antoine.teixeira@ademe.fr"},
+    {name = "Julien Grand", email = "jgrand.pro@proton.me"}
+]
+description = "MatMat: a Python library for environmentally-extended input-output analysis and prospective modeling"
+license = "CeCILL-2.1"
+requires-python = ">=3.11"
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+]
+
+keywords = [
+    "industrial ecology",
+    "ecological economics",
+    "environmentally-extended input-output analysis",
+    "eeio",
+    "environmental footprint",
+    "environmental assessment",
+    "scenario modelling",
+    "prospective analysis",
+    "sustainability",
+]
+
+dependencies = [
+    "scipy==1.17.1",
+    "pandas==2.2.2",
+    "numpy>=1.22.4",
+    "pymrio==0.5.4",
+    "openpyxl==3.1.0",
+    "plotly==6.1.1",
+    "kaleido==0.1.0.post1; os_name == 'nt'",
+    "kaleido==0.2.1; os_name != 'nt'",
+    "joblib==1.5.3",
+]
+
+license-files = [
+    "LICENSE-FR.txt",
+    "LICENSE-EN.txt"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.2.2",
+    "pytest-cov==5.0.0",
+    "pytest-mock==3.14.0",
+    "pytest-timeout==2.4.0",
+    "build==1.2.2",
+]
+docs = [
+    "Sphinx==5.3.0",
+]
+
+[project.urls]
+"GitHub" = "https://github.com/AntoineTeixeira/matmat-ademe"
+"Issue Tracker" = "https://github.com/AntoineTeixeira/matmat-ademe/issues"
+#"Documentation" = "https://matmat-ademe.readthedocs.io"
+"DOI" = "https://doi.org/10.xxxx/zenodo.xxxxx" # ToDo
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.md"], content-type="text/markdown"}
+version = {attr = "matmat.utils.constants.version.MATMAT_VERSION"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["_trash*"]
+
+[tool.setuptools.package-data]
+matmat = ["**/*.json"]
+
+[tool.pylint]
+
+[tool.black]
+line-length = 79
+target-version = ["py311"]
+include = '\.py$'
+
+[project.scripts]
+matmat = "matmat.cli:cli_entry_point"

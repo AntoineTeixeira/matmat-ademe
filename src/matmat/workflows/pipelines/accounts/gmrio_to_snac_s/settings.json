@@ -1,0 +1,25 @@
+{
+  "path_in": {
+    "accounts": "path/to/accounts",
+    "detail_levels": "path/to/detail_levels.xlsx",
+    "bridges": "path/to/bridge_matrices.xlsx"
+  },
+  "path_out": "path/to/output/data/directory",
+  "export_format": [
+    "pickle",
+    "excel"
+  ],
+  "extension_names": [
+    "ghg_emissions",
+    "energy",
+    "raw_materials",
+    "labor",
+    "value_added",
+    "water",
+    "land_use",
+    "biogeochemical"
+  ],
+  "m_row_mode": "world_global_feedback",
+  "calculate_accounts": false,
+  "clean_path_out": false
+}

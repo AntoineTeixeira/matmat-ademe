@@ -1,0 +1,17 @@
+{
+  "path_in": {
+    "accounts": "path/to/accounts",
+    "shock": "path/to/shocks",
+    "bridges": "path/to/bridge_matrices.xlsx"
+  },
+  "path_out": "path/to/output/data/directory",
+  "system_calcul_strategy": "endo_invest_matrix",
+  "shall_calculate_mapping": false,
+  "extension_names": [
+    "ext_test"
+  ],
+  "export_format": [
+    "pickle",
+    "excel"
+  ]
+}

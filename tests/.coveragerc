@@ -1,0 +1,5 @@
+[run]
+omit = 
+	../src/adapters/accounts/local/*
+	../src/adapters/shocks/local/*
+
