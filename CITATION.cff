@@ -19,9 +19,7 @@ date-released: "2026-06-20"
 repository-code: "https://github.com/AntoineTeixeira/matmat-ademe"
 url: "https://github.com/AntoineTeixeira/matmat-ademe"
 license: "CECILL-2.1"
-
-# To be added after the GitHub release has been archived on Zenodo:
-# doi: "10.5281/zenodo.xxxxxxx"
+doi: "10.5281/zenodo.20777137"
 
 abstract: >
   MatMat is a modular open-source Python framework for Environmentally-Extended
