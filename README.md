@@ -3,11 +3,6 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](/CODE_OF_CONDUCT.md)
 [![Unit tests](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/ci.yml/badge.svg)](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/ci.yml)
 
-#### - OS compatibility -
-[![Linux](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/linux-tests.yml/badge.svg)](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/linux-tests.yml)\
-[![Mac OS](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/macos-tests.yml/badge.svg)](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/macos-tests.yml)\
-[![Windows](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/windows-tests.yml/badge.svg)](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/windows-tests.yml)
-
 # MatMat model
 
 ## Presentation
