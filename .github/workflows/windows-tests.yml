@@ -6,10 +6,10 @@ name: Windows
 on:
   workflow_dispatch:
   push:
-    branches: [ "master" ]
+    branches: [ "main", "master" ]
     paths: ["src/**", "tests/**"]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main", "master" ]
 
 permissions:
   contents: read
