@@ -1,12 +1,12 @@
 [![DOI](https://zenodo.org/badge/1271071226.svg)](https://doi.org/10.5281/zenodo.20777137)
 [![License](https://img.shields.io/badge/License-CECILL%202.1-green)](/LICENSE-EN.txt)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](/CODE_OF_CONDUCT.md)
-[![Unit tests](https://github.com/AntoineTeixeira/MatMat-thesis/actions/workflows/ci.yml/badge.svg)](https://github.com/AntoineTeixeira/MatMat-thesis/actions/workflows/ci.yml)
+[![Unit tests](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/ci.yml/badge.svg)](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/ci.yml)
 
 #### - OS compatibility -
-[![Linux](https://github.com/AntoineTeixeira/MatMat-thesis/actions/workflows/linux-tests.yml/badge.svg)](https://github.com/AntoineTeixeira/MatMat-thesis/actions/workflows/linux-tests.yml)\
-[![Mac OS](https://github.com/AntoineTeixeira/MatMat-thesis/actions/workflows/macos-tests.yml/badge.svg)](https://github.com/AntoineTeixeira/MatMat-thesis/actions/workflows/macos-tests.yml)\
-[![Windows](https://github.com/AntoineTeixeira/MatMat-thesis/actions/workflows/windows-tests.yml/badge.svg)](https://github.com/AntoineTeixeira/MatMat-thesis/actions/workflows/windows-tests.yml)
+[![Linux](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/linux-tests.yml/badge.svg)](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/linux-tests.yml)\
+[![Mac OS](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/macos-tests.yml/badge.svg)](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/macos-tests.yml)\
+[![Windows](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/windows-tests.yml/badge.svg)](https://github.com/AntoineTeixeira/matmat-ademe/actions/workflows/windows-tests.yml)
 
 # MatMat model
 
