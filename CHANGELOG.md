@@ -2,6 +2,13 @@
 
 All notable changes to MatMat will be documented in this file.
 
+## [0.9.1-beta] - ?
+
+### Added
+- Restore data packages missing in previous version
+- Update GitHub actions to work on 'main' branch
+- Remove OS-compatibility GitHub actions
+
 ## [0.9.0-beta] - 2026-06-20
 
 ### Added
