@@ -7,6 +7,9 @@ __pycache__/
 venv*/
 env*/
 
+# uv files
+uv.lock
+
 # Build
 build/
 dist/
@@ -36,10 +39,14 @@ settings/
 # Data
 calibration/
 outputs/
-data/
+**/data/
 .cache/
 MatMat/
 src/_trash
+
+# Keep data packages
+!/src/**/data/
+!/tests/**/data/
 
 # Temporary work
 draft/
