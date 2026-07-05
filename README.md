@@ -7,7 +7,7 @@
 
 ## Presentation
 
-> **Beta pre-release (v0.9.0-beta)**
+> **Beta pre-release (v0.9.1-beta)**
 > 
 > This repository contains the first public open-source release of MatMat. Some
 > internal development utilities, legacy data conversion scripts, and experimental
@@ -79,7 +79,7 @@ its applications in scientific research and public policy assessment.
 The following materials document earlier stages of the MatMat methodological
 development. They provide useful background on the modelling approach and selected
 applications, but they may not fully reflect the current software architecture,
-package structure, API, and implementation choices of the v0.9.0-beta release.
+package structure, API, and implementation choices of the v0.9.1-beta release.
 
 - Teixeira A., Grand J. & al. (2025). *MatMat – A modular Input-Output
   framework: Assessing country-driven environmental and socio-economic impacts 
@@ -111,7 +111,8 @@ publicly available for transparency and reproducibility purposes.
   https://doi.org/10.5281/zenodo.18418964
 - Teixeira A. & Fontaine B. (2026). *Hybrid Input-Output calibration database 
   for the French MatMat model: SNAC-S-based GHG emissions and raw material 
-  consumption-based assessment (2015–2019).* Zenodo (restricted access).
+  consumption-based assessment (2015–2019).* Zenodo (restricted access). 
+  https://doi.org/10.5281/zenodo.10658659
 
 ### Policy applications
 
@@ -407,8 +408,7 @@ Citation metadata are provided in the `CITATION.cff` file.
 
 ## Release history
 
-| Version | Date | Description |
-|----------|----------|----------|
-| 0.9.0-beta | 2026-06-20 | First public open-source beta release |
-
-
+| Version    | Date       | Description                                                                                   |
+| ---------- | ---------- | --------------------------------------------------------------------------------------------- |
+| 0.9.1-beta | 2026-07-05 | Maintenance beta release restoring missing package data and updating GitHub Actions workflows |
+| 0.9.0-beta | 2026-06-20 | First public open-source beta release                                                         |

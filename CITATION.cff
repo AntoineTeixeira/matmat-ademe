@@ -13,8 +13,8 @@ authors:
     given-names: "Julien"
     email: "jgrand.pro@proton.me"
 
-version: "0.9.0-beta"
-date-released: "2026-06-20"
+version: "0.9.1-beta"
+date-released: "2026-07-05"
 
 repository-code: "https://github.com/AntoineTeixeira/matmat-ademe"
 url: "https://github.com/AntoineTeixeira/matmat-ademe"

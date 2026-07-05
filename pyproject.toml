@@ -66,7 +66,7 @@ docs = [
 "GitHub" = "https://github.com/AntoineTeixeira/matmat-ademe"
 "Issue Tracker" = "https://github.com/AntoineTeixeira/matmat-ademe/issues"
 #"Documentation" = "https://matmat-ademe.readthedocs.io"
-"DOI" = "https://doi.org/10.xxxx/zenodo.xxxxx" # ToDo
+"DOI" = "https://doi.org/10.5281/zenodo.20777137"
 
 [tool.setuptools]
 include-package-data = true

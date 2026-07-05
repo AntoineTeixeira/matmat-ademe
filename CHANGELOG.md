@@ -2,12 +2,26 @@
 
 All notable changes to MatMat will be documented in this file.
 
-## [0.9.1-beta] - ?
+## [1.0.0] - Unreleased
 
-### Added
-- Restore data packages missing in previous version
-- Update GitHub actions to work on 'main' branch
-- Remove OS-compatibility GitHub actions
+### Planned
+- Stabilise the public API.
+- Complete user documentation.
+- Add developer documentation.
+- Consolidate and document missing public workflows, including selected adapters and analyses workflows.
+- Maintain continuous integration and automated testing.
+- Improve packaging and distribution.
+- Improve computational performance, memory usage, and data processing efficiency.
+- Add examples and tutorials.
+
+## [0.9.1-beta] - 2026-07-05
+
+### Fixed
+- Restore data packages missing from the previous public release.
+- Update GitHub Actions workflows to run correctly on the `main` branch.
+
+### Changed
+- Remove OS compatibility checks from GitHub Actions workflows.
 
 ## [0.9.0-beta] - 2026-06-20
 
@@ -37,15 +51,3 @@ All notable changes to MatMat will be documented in this file.
 ### Notes
 - This release provides the first public open-source version of MatMat and is intended to support transparency, reproducibility, review, and reuse of the research conducted during its development.
 - A consolidated stable release (v1.0.0) is planned following additional documentation, testing, validation, and packaging improvements.
-
-## [1.0.0] - Unreleased
-
-### Planned
-- Stabilise the public API.
-- Complete user documentation.
-- Add developer documentation.
-- Consolidate and document missing public workflows, including selected adapters and analyses workflows.
-- Maintain continuous integration and automated testing.
-- Improve packaging and distribution.
-- Improve computational performance, memory usage, and data processing efficiency.
-- Add examples and tutorials.
