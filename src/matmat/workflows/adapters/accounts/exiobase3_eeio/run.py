@@ -1,7 +1,5 @@
 import os
 
-from pytest_cov.plugin import no_cover
-
 from matmat.workflows.run import WorkflowExecution
 from matmat.workflows.adapters.accounts.exiobase3_eeio import (
     identity,
