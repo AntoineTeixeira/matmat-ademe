@@ -98,12 +98,12 @@ body:
       render: toml
     validations:
       required: false
-      
+
   - type: markdown
     attributes:
       value: |
         ### Custom script
-              
+
         *Complete the following field if the bug occurred when using a custom script.*
 
   - type: textarea
@@ -111,7 +111,7 @@ body:
     attributes:
       label: Custom script
       description: |
-              
+
         In case the bug occurred in a custom script, explain the purpose of the script.
         If possible, append the script to the issue.
     validations:
