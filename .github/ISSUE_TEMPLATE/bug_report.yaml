@@ -1,0 +1,135 @@
+name: 🐛Bug Report
+description: Signaler un bug dans MatMat
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Environment
+        Write here information about your developing environment to ensure reproductability.
+
+  - type: input
+    id: matmat-version
+    attributes:
+      label: MatMat version
+      description: "`matmat --version` ou `pip show matmat`"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+    validations:
+      required: true
+
+  - type: textarea
+    id: pip-freeze
+    attributes:
+      label: pip freeze output
+      render: text
+    validations:
+      required: false
+
+  - type: dropdown
+    id: usage-type
+    attributes:
+      label: Workflow or custom script
+      options:
+        - Workflow
+        - Custom script
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Reproducibility
+
+        ### Workflow
+        *Complete the following fields if the bug occurred when using a workflow*
+
+  - type: dropdown
+    id: workflow-type
+    attributes:
+      label: Workflow type
+      options:
+        - adapter
+        - pipeline
+        - engine
+        - analysis
+    validations:
+      required: false
+
+  - type: input
+    id: workflow-name
+    attributes:
+      label: Workflow name
+    validations:
+      required: false
+
+  - type: input
+    id: cli-command
+    attributes:
+      label: Exact CLI command run
+    validations:
+      required: false
+
+  - type: textarea
+    id: settings-json
+    attributes:
+      label: Content of settings.json used to run the workflow
+      render: json
+    validations:
+      required: false
+
+  - type: textarea
+    id: config-toml
+    attributes:
+      label: Content of config.toml (if customized)
+      render: toml
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ### Custom script
+      	
+      	*Complete the following field if the bug occurred when using a custom script.*
+
+  - type: textarea
+    id: custom-script
+    attributes:
+      label: Custom script
+      description: |
+      	
+        In case the bug occurred in a custom script, explain the purpose of the script.
+        If possible, append the script to the issue.
+    validations:
+      required: false
+
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Issue
+      description: Describe the issue in details, expected vs actual behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Paste the logs here or append the log file to the issue
+      render: text
+    validations:
+      required: false
