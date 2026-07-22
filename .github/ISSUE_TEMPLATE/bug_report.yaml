@@ -133,3 +133,11 @@ body:
       render: text
     validations:
       required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
