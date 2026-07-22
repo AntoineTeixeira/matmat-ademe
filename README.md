@@ -184,9 +184,8 @@ python -m pip install --upgrade pip
 ```
 ### 6. Install MatMat
 ```commandline
-git clone https://github.com/AntoineTeixeira/matmat-ademe.git
-cd matmat-ademe
-pip install .
+# Replace <version> by the MatMat version you want to work with
+python -m pip install "matmat @ git+https://github.com/AntoineTeixeira/matmat-ademe.git@<version>"
 ```
 </details>
 
@@ -198,7 +197,7 @@ from [python.org](https://www.python.org/downloads/)
 (check "Add Python to PATH" during installation)
 ### 2. Create your virtual environment
 ```commandline
-python -m venv env
+py -3.11 -m venv env
 ```
 ### 3. Activate your virtual environment
 ```commandline
@@ -210,9 +209,8 @@ python -m pip install --upgrade pip
 ```
 ### 5. Install MatMat
 ```commandline
-git clone https://github.com/AntoineTeixeira/matmat-ademe.git
-cd matmat-ademe
-python -m pip  install .
+# Replace <version> by the MatMat version you want to work with
+python -m pip install "matmat @ git+https://github.com/AntoineTeixeira/matmat-ademe.git@<version>"
 ```
 </details>
 
@@ -259,14 +257,87 @@ python -m pip install --upgrade pip
 ### 6. Install MatMat
 
 ```bash
-git clone https://github.com/AntoineTeixeira/matmat-ademe.git
-cd matmat-ademe
-python -m pip  install .
+# Replace <version> by the MatMat version you want to work with
+python -m pip install "matmat @ git+https://github.com/AntoineTeixeira/matmat-ademe.git@<version>"
 ```
 
 </details>
 
 ---
+
+### Initialization of MatMat
+
+Once you have installed the MatMat package, you need to initialize your MatMat workspace.
+
+First, execute the *init* command:
+``python -m matmat.cli --init``
+
+This will generate:
+- the configuration file **config.toml**: it permits to manage MatMat global configuration
+- the settings JSON files: they permit to configure MatMat workflows
+
+**NOTE:** if you re-run the command *init*:
+- if the config.toml file already exists, it will not be overwritten
+- if a settings file already exists, MatMat will ask for confirmation before overwriting it
+
+#### File config.toml
+You need to configure the two parameters **data_dir** and **settings_dir**
+
+- **data_dir:** it defines the absolute path to your data directory. 
+</br>By default it points towards the local data folder (relatively to the directory where
+you executed the **init** command)
+</br>You may want to update it if you prefer to manage your data somewhere else.
+- **settings_dir:** it defines the absolute path to the settings directory. 
+</br>The *init* command has generated a settings directory containing the settings JSON files.
+</br>You may want to update it if you prefer to move the settings directory somewhere else.
+
+**NOTE:** For all OS, prefer using '/' only in path definition. MatMat will handle it.
+
+#### Folder settings
+The settings folder has been generated in your working directory.
+If you move it, you need to update the **config.toml** file accordingly.
+
+In this folder, there is one sub-folder for each workflow type:
+- adapter
+- pipeline
+- engine
+- analyses
+
+In each of these folders, there is one JSON settings file for each workflow.
+To configure a workflow execution, you need to update the corresponding settings
+file.
+
+When you run a workflow from the command line, MatMat will automatically read
+the associated settings JSON file.
+</br>The convention for the location of settings JSON file is: **settings/<workflow_type>s/<workflow_name>_settings.json**
+
+**Example:** the file **settings/adapters/exiobase3_eeio_settings.json** shall be updated before
+running the adapter exiobase3_eeio.
+
+### How to run workflows
+MatMat offers a Command Line Interface (CLI).
+For details about how to use it, use the integrated help by running the command:
+
+``python -m matmat.cli -h``
+
+The generic command to run a workflow is:
+
+``python -m matmat.cli -<type> <name>``
+
+| Workflow | Type | Name(s)                                           |
+|----------|---|---------------------------------------------------|
+| adapter  | a | exiobase3_eeio<br/>manual                         |
+| pipeline | p | gmrio_to_snac_s<br/>aggregation<br/>union         |
+| engine | e | eeio                                              |
+| analysis | an | *no analysis workflows available in this version* |
+
+**Examples:**
+
+``python -m matmat.cli -a exiobase3_eeio``
+
+``python -m matmat.cli -p gmrio_to_snac_s``
+
+``python -m matmat.cli -e eeio``
 
 ### Usage examples
 Examples and tutorials are currently under development and will be progressively
