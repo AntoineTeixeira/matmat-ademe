@@ -1,0 +1,75 @@
+name: 💡 Feature Request
+description: Propose a new feature for MatMat
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Context / Problem
+      description: What need or current limitation motivates this request?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: What should the user be able to do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: usage-example
+    attributes:
+      label: Usage example
+      description: "A concrete use case, e.g. \"As a user, I want to ... so that ...\""
+    validations:
+      required: false
+
+  - type: dropdown
+    id: workflow-context
+    attributes:
+      label: Context
+      description: Which type of workflow does this relate to, if any?
+      options:
+        - adapter
+        - pipeline
+        - engine
+        - analysis
+        - new workflow
+        - not applicable
+    validations:
+      required: false
+
+  - type: textarea
+    id: existing-script
+    attributes:
+      label: Existing script
+      description: |
+        If you already have a script that partially or fully does the job, please attach it here as an illustration of the need.
+    validations:
+      required: false
+
+  - type: textarea
+    id: input-output-data
+    attributes:
+      label: Input / output data
+      description: Example input and/or output data illustrating the need.
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other ways to achieve the same result, if any.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      options:
+        - label: I have searched existing issues to avoid duplicates
+          required: true
