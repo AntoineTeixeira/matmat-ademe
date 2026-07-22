@@ -301,7 +301,6 @@ In this folder, there is one sub-folder for each workflow type:
 - adapter
 - pipeline
 - engine
-- analyses
 
 In each of these folders, there is one JSON settings file for each workflow.
 To configure a workflow execution, you need to update the corresponding settings
@@ -329,7 +328,6 @@ The generic command to run a workflow is:
 | adapter  | a | exiobase3_eeio<br/>manual                         |
 | pipeline | p | gmrio_to_snac_s<br/>aggregation<br/>union         |
 | engine | e | eeio                                              |
-| analysis | an | *no analysis workflows available in this version* |
 
 **Examples:**
 
