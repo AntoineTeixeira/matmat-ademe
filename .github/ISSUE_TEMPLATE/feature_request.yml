@@ -69,8 +69,8 @@ body:
 
   - type: checkboxes
     id: checklist
-    label: Checklist
     attributes:
+      label: Checklist
       options:
         - label: I have searched existing issues to avoid duplicates
           required: true
