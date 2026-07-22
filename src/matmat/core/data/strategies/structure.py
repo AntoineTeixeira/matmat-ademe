@@ -55,7 +55,6 @@ __all__ = [
     "StructureMappingKIndirect",
 ]
 
-
 from abc import ABC, abstractmethod
 from functools import cached_property
 
@@ -149,13 +148,13 @@ class AbstractDataStructure(ABC):
     _df_columns: pd.Index
 
     def __init__(
-        self,
-        *,
-        sectors: dl.SectorsDL,
-        regions: dl.RegionsDL,
-        final_demand_categories: dl.FinalDemandCategoriesDL,
-        extension_categories: dl.ExtensionCategoriesDL = None,
-        **kwargs,
+            self,
+            *,
+            sectors: dl.SectorsDL,
+            regions: dl.RegionsDL,
+            final_demand_categories: dl.FinalDemandCategoriesDL,
+            extension_categories: dl.ExtensionCategoriesDL = None,
+            **kwargs,
     ):
         # Set detail levels attributes
         self._sectors: dl.SectorsDL = sectors
@@ -176,14 +175,14 @@ class AbstractDataStructure(ABC):
     @property
     @abstractmethod
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         pass
 
     @property
     @abstractmethod
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         pass
 
@@ -293,7 +292,7 @@ class AbstractDataStructure(ABC):
             MEIncorrectDataFrameStructure
         """
         if df_index.names != self._df_rows.names or not df_index.equals(
-            self._df_rows
+                self._df_rows
         ):
             raise MEIncorrectDataFrameStructure(
                 erroneous_index=df_index,
@@ -313,8 +312,8 @@ class AbstractDataStructure(ABC):
             MEIncorrectDataFrameStructure
         """
         if (
-            df_columns.names != self._df_columns.names
-            or not df_columns.equals(self._df_columns)
+                df_columns.names != self._df_columns.names
+                or not df_columns.equals(self._df_columns)
         ):
             raise MEIncorrectDataFrameStructure(
                 erroneous_index=df_columns,
@@ -352,7 +351,7 @@ class AbstractDataStructure(ABC):
                 )
 
     def apply_bridge_to_df(
-        self, df: pd.DataFrame, bridge_: bridge.Bridge
+            self, df: pd.DataFrame, bridge_: bridge.Bridge
     ) -> pd.DataFrame:
         """
         Apply a bridge to a dataframe
@@ -430,9 +429,9 @@ class AbstractDataStructure(ABC):
 
     @staticmethod
     def _compute_matricial_product(
-        left_matrix: sp.csr_array | None,
-        factor: sp.csr_array,
-        right_matrix: sp.csr_array | None,
+            left_matrix: sp.csr_array | None,
+            factor: sp.csr_array,
+            right_matrix: sp.csr_array | None,
     ) -> sp.csr_array:
         """
         Compute the matricial product, depending on the data available:
@@ -462,10 +461,10 @@ class AbstractDataStructure(ABC):
         return result
 
     def _compute_nan_mask(
-        self,
-        df_raw: pd.DataFrame,
-        left_matrix: sp.csr_array,
-        right_matrix: sp.csr_array,
+            self,
+            df_raw: pd.DataFrame,
+            left_matrix: sp.csr_array,
+            right_matrix: sp.csr_array,
     ) -> np.ndarray:
         """
         Compute a boolean mask indicating aggregated cells where all
@@ -531,7 +530,8 @@ class AbstractDataStructure(ABC):
                     raise NotImplementedError
 
     def _get_applicable_dls(
-        self, dls_specs: dict[dl.DetailLevelKind, list[filter.AbstractFilter]]
+            self,
+            dls_specs: dict[dl.DetailLevelKind, list[filter.AbstractFilter]]
     ) -> list[dl.AbstractDetailLevel]:
         """
         Returns the ordered list of detail levels used to build an index:
@@ -585,9 +585,9 @@ class AbstractDataStructure(ABC):
         return applicable_dls
 
     def _get_adjacent_dl_lists(
-        self,
-        dl_kind: dl.DetailLevelKind,
-        dls_specs: dict[dl.DetailLevelKind, list[filter.AbstractFilter]],
+            self,
+            dl_kind: dl.DetailLevelKind,
+            dls_specs: dict[dl.DetailLevelKind, list[filter.AbstractFilter]],
     ) -> tuple[list[dl.AbstractDetailLevel], list[dl.AbstractDetailLevel]]:
         """
         Sort detail levels according to the position in the specs (i.e.
@@ -630,9 +630,9 @@ class AbstractDataStructure(ABC):
         return str(key)
 
     def _compute_combined_bridge(
-        self,
-        bridge_: bridge.Bridge,
-        dls_specs: dict[dl.DetailLevelKind, list[filter.AbstractFilter]],
+            self,
+            bridge_: bridge.Bridge,
+            dls_specs: dict[dl.DetailLevelKind, list[filter.AbstractFilter]],
     ) -> bridge.CombinedBridge | None:
         """
         Compute a combined bridge from a bridge and detail levels (DL)
@@ -750,13 +750,13 @@ class StructureNull(AbstractDataStructure):
 
     @property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return None
 
     @property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return None
 
@@ -767,7 +767,7 @@ class StructureNull(AbstractDataStructure):
         self.df_columns = cst.NULL_INDEX
 
     def apply_bridge_to_df(
-        self, df: pd.DataFrame, bridge_: bridge.Bridge
+            self, df: pd.DataFrame, bridge_: bridge.Bridge
     ) -> pd.DataFrame:
         return df
 
@@ -797,7 +797,7 @@ class StructureX(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [],
@@ -806,7 +806,7 @@ class StructureX(AbstractDataStructure):
 
     @property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return None
 
@@ -841,7 +841,7 @@ class StructureSx(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.EXTENSION_CATEGORIES: [],
@@ -849,7 +849,7 @@ class StructureSx(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -868,7 +868,7 @@ class StructureMRoW(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.EXTENSION_CATEGORIES: [],
@@ -876,7 +876,7 @@ class StructureMRoW(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -918,7 +918,7 @@ class StructureZ(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [],
@@ -927,7 +927,7 @@ class StructureZ(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -967,7 +967,7 @@ class StructureY(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [],
@@ -976,7 +976,7 @@ class StructureY(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1062,7 +1062,7 @@ class StructureDCbaBySector(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [],
@@ -1071,7 +1071,7 @@ class StructureDCbaBySector(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1120,7 +1120,7 @@ class StructureDCbaByExtensionCategory(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.EXTENSION_CATEGORIES: [],
@@ -1128,7 +1128,7 @@ class StructureDCbaByExtensionCategory(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1148,7 +1148,7 @@ class StructureDCbaKBySector(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [],
@@ -1157,7 +1157,7 @@ class StructureDCbaKBySector(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1179,7 +1179,7 @@ class StructureDCbaKByExtensionCategory(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.EXTENSION_CATEGORIES: [],
@@ -1187,7 +1187,7 @@ class StructureDCbaKByExtensionCategory(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1205,7 +1205,7 @@ class StructureMappingDirect(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1218,7 +1218,7 @@ class StructureMappingDirect(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1234,7 +1234,7 @@ class StructureMappingIndirect(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1247,7 +1247,7 @@ class StructureMappingIndirect(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1263,7 +1263,7 @@ class StructureMappingKDirect(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1276,7 +1276,7 @@ class StructureMappingKDirect(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1294,7 +1294,7 @@ class StructureMappingKIndirect(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1307,7 +1307,7 @@ class StructureMappingKIndirect(AbstractDataStructure):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1325,7 +1325,7 @@ class AbstractStructureUnit(AbstractDataStructure, ABC):
 
     @cached_property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return None
 
@@ -1336,7 +1336,7 @@ class AbstractStructureUnit(AbstractDataStructure, ABC):
 
     @staticmethod
     def _perform_aggregation(
-        df: pd.DataFrame, agg_matrix: pd.DataFrame
+            df: pd.DataFrame, agg_matrix: pd.DataFrame
     ) -> pd.DataFrame:
         """
         Aggregate the unit vector while checking that the aggregation matrix
@@ -1403,7 +1403,7 @@ class AbstractStructureUnit(AbstractDataStructure, ABC):
 
     @staticmethod
     def _perform_disaggregation(
-        df: pd.DataFrame, agg_matrix: pd.DataFrame
+            df: pd.DataFrame, agg_matrix: pd.DataFrame
     ) -> pd.DataFrame:
         """
         Disaggregate the unit vector while checking that the aggregation
@@ -1430,7 +1430,7 @@ class AbstractStructureUnit(AbstractDataStructure, ABC):
             for row in agg_matrix.index:
                 matching_indices = agg_matrix.loc[row][
                     agg_matrix.loc[row] == 1
-                ].index
+                    ].index
                 if len(matching_indices) < 1:
                     log.error(
                         "Disaggregation matrix shall have at least one '1' "
@@ -1477,14 +1477,14 @@ class StructureUnitBySector(AbstractStructureUnit):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.SECTORS: [],
         }
 
     def apply_bridge_to_df(
-        self, df: pd.DataFrame, bridge_: bridge.Bridge
+            self, df: pd.DataFrame, bridge_: bridge.Bridge
     ) -> pd.DataFrame:
         if bridge_.kind is dl.DetailLevelKind.SECTORS:
             agg_matrix = bridge_.get_agg_matrix()
@@ -1515,21 +1515,22 @@ class StructureUnitByExtensionCategory(AbstractStructureUnit):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.EXTENSION_CATEGORIES: [],
         }
 
     def apply_bridge_to_df(
-        self, df: pd.DataFrame, bridge_: bridge.Bridge
+            self, df: pd.DataFrame, bridge_: bridge.Bridge
     ) -> pd.DataFrame:
         if bridge_.kind is dl.DetailLevelKind.EXTENSION_CATEGORIES:
             agg_matrix = bridge_.get_agg_matrix()
             if len(agg_matrix.index) >= len(agg_matrix.columns):
-                return self._perform_aggregation(df, agg_matrix)
+                return self._perform_aggregation(df, agg_matrix.to_dataframe())
             else:
-                return self._perform_disaggregation(df, agg_matrix)
+                return self._perform_disaggregation(df,
+                                                    agg_matrix.to_dataframe())
         return df
 
 
@@ -1537,7 +1538,7 @@ class StructureImpDomRatio(AbstractDataStructure):
 
     @cached_property
     def rows_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return {
             dl.DetailLevelKind.REGIONS: [
@@ -1549,7 +1550,7 @@ class StructureImpDomRatio(AbstractDataStructure):
 
     @property
     def columns_specs(
-        self,
+            self,
     ) -> dict[dl.DetailLevelKind, list[filter.AbstractFilter]] | None:
         return None
 
