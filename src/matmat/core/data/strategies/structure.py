@@ -55,7 +55,6 @@ __all__ = [
     "StructureMappingKIndirect",
 ]
 
-
 from abc import ABC, abstractmethod
 from functools import cached_property
 
@@ -1527,9 +1526,11 @@ class StructureUnitByExtensionCategory(AbstractStructureUnit):
         if bridge_.kind is dl.DetailLevelKind.EXTENSION_CATEGORIES:
             agg_matrix = bridge_.get_agg_matrix()
             if len(agg_matrix.index) >= len(agg_matrix.columns):
-                return self._perform_aggregation(df, agg_matrix)
+                return self._perform_aggregation(df, agg_matrix.to_dataframe())
             else:
-                return self._perform_disaggregation(df, agg_matrix)
+                return self._perform_disaggregation(
+                    df, agg_matrix.to_dataframe()
+                )
         return df
 
 
