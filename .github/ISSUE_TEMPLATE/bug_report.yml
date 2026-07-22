@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         ## Environment
-        Write here information about your developing environment to ensure reproductability.
+        Write here information about your developing environment to ensure reproducibility.
 
   - type: input
     id: matmat-version
