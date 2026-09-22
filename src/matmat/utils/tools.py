@@ -284,9 +284,28 @@ def timeit(func):
     return wrapper
 
 
+def hash_index(index: pd.Index) -> str:
+    """
+    Compute a MD5 hash of a pandas Index, including its level names.
+
+    Parameters:
+        index (pd.Index):
+            The index to hash (flat or MultiIndex).
+
+    Returns:
+        str:
+            The MD5 hash as a hexadecimal string.
+    """
+    h = hashlib.md5()
+    h.update(pd.util.hash_pandas_object(index).values)
+    h.update(str(list(index.names)).encode())
+    return h.hexdigest()
+
+
 def hash_df(df: pd.DataFrame) -> str:
     """
-    Compute a MD5 hash of a pandas DataFrame.
+    Compute a MD5 hash of a pandas DataFrame, including its column labels
+    and the level names of its index.
 
     Parameters:
         df (pd.DataFrame):
@@ -296,9 +315,11 @@ def hash_df(df: pd.DataFrame) -> str:
         str:
             The MD5 hash as a hexadecimal string.
     """
-    return hashlib.md5(
-        pd.util.hash_pandas_object(df).values
-    ).hexdigest()
+    h = hashlib.md5()
+    h.update(pd.util.hash_pandas_object(df).values)
+    h.update(hash_index(df.columns).encode())
+    h.update(str(list(df.index.names)).encode())
+    return h.hexdigest()
 
 
 def hash_csr_array(array: sp.csr_array) -> str:

@@ -621,9 +621,14 @@ class AbstractDataStructure(ABC):
     @staticmethod
     def _get_bridge_pool_key(bridge_, left_dls, right_dls) -> str:
 
+        bridge_key = (
+            f"{tools.hash_csr_array(bridge_.matrix.array)}"
+            f"-{tools.hash_index(bridge_.matrix.rows)}"
+            f"-{tools.hash_index(bridge_.matrix.columns)}"
+        )
         key = (
             f"{[f'<dl_{dl_.kind.value}-{tools.hash_df(dl_.df)}>' for dl_ in left_dls]}-"
-            f"<bridge_{bridge_.kind.value}-{tools.hash_csr_array(bridge_.matrix.array)}>-"
+            f"<bridge_{bridge_.kind.value}-{bridge_key}>-"
             f"{[f'<dl_{dl_.kind.value}-{tools.hash_df(dl_.df)}>' for dl_ in right_dls]}-"
         )
         return str(key)
